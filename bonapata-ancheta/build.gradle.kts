@@ -58,3 +58,8 @@ java {
     withSourcesJar()
     withJavadocJar()
 }
+
+tasks.register<Copy>("copyReportsDirForArchiving") {
+    from("$buildDir/docs/javadoc")
+    into("$rootDir/docs")
+}
