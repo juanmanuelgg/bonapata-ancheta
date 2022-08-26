@@ -8,11 +8,12 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
  * User Manual available at https://docs.gradle.org/7.5.1/userguide/building_java_projects.html
  * This project uses @Incubating APIs which are subject to change.
  */
- version = "0.1.0"
+ version = "0.0.1"
 
 plugins {
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
+    `maven-publish`
 }
 
 repositories {
@@ -59,7 +60,40 @@ java {
     withJavadocJar()
 }
 
-tasks.register<Copy>("copyReportsDirForArchiving") {
-    from("$buildDir/docs/javadoc")
-    into("$rootDir/docs")
+tasks.register<Copy>("copyReportsAndJavadocForDocumentation") {
+    into("$rootDir")
+
+    from("$buildDir/docs"){
+        into("docs")
+    }
+    from("$buildDir/reports/tests"){
+        into("docs")
+    }
+    from("$buildDir/libs"){
+        into("dist")
+    }
 }
+
+// TODO: Me falta crear mi cuenta y terminar de ajustar el proyecto
+// https://central.sonatype.org/publish/publish-guide/#introduction
+/*
+publishing {
+    publications {
+        create<MavenPublication>("bonapata-ancheta") {
+            from(components["java"])
+        }
+    }
+
+    repositories {
+        maven {
+            name = "OSSRH"
+            // Queda comentado porque en kotlin no funciona asi el de url
+            url = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            credentials {
+                username = System.getenv("MAVEN_USERNAME")
+                password = System.getenv("MAVEN_PASSWORD")
+            }
+        }
+    }
+}
+*/
