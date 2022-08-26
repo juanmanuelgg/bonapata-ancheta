@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"ancheta","c":"Library","l":"Library()","url":"%3Cinit%3E()"},{"p":"ancheta","c":"Library","l":"someLibraryMethod()"}]
