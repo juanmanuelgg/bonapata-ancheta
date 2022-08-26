@@ -1,4 +1,29 @@
+/*
+ * MIT License
+ * 
+ * Copyright (c) 2022 Juan Manuel González Garzón
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package ancheta.Grafos;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -10,56 +35,52 @@ import java.util.PriorityQueue;
 import java.util.Stack;
 
 /**
- * Dijkstra_All con PriorityQueue
- * Complejidad Temporal: O(V*(E+V)*Log(V))
+ * Dijkstra_All con PriorityQueue Complejidad Temporal: O(V*(E+V)*Log(V))
  * Complejidad Espacial: O(V^2)
  */
-public class Dijkstra_All
-{
-	public static void main(String[] args) throws IOException
-	{
-		BufferedReader  br=new BufferedReader(new FileReader(new File("./data/grafos/SP.in")));
+public class Dijkstra_All {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new FileReader(new File("./data/grafos/SP.in")));
 
 		int V, E, from, to;
 		double peso;
 
-		String aux[]=br.readLine().split(" ");
-		V=Integer.parseInt(aux[0]);
-		E=Integer.parseInt(aux[1]);
+		String aux[] = br.readLine().split(" ");
+		V = Integer.parseInt(aux[0]);
+		E = Integer.parseInt(aux[1]);
 
-		//Paso 1: Representar el grafo como una lista de adjacenica de Arcos
+		// Paso 1: Representar el grafo como una lista de adjacenica de Arcos
 		@SuppressWarnings("unchecked")
-		List<Arco>[] adj=new ArrayList[V];
-		for(int i=0; i<V; i++) adj[i]=new ArrayList<Arco>();
-		while(E--!=0)
-		{
-			aux=br.readLine().split(" ");
-			from=Integer.parseInt(aux[0]);
-			to=Integer.parseInt(aux[1]);
-			peso=Double.parseDouble(aux[2]);
+		List<Arco>[] adj = new ArrayList[V];
+		for (int i = 0; i < V; i++)
+			adj[i] = new ArrayList<Arco>();
+		while (E-- != 0) {
+			aux = br.readLine().split(" ");
+			from = Integer.parseInt(aux[0]);
+			to = Integer.parseInt(aux[1]);
+			peso = Double.parseDouble(aux[2]);
 
 			adj[from].add(new Arco(from, to, peso));
 		}
 		br.close();
 
-		//Paso 2 Prepara las estructura de datos donde guardo la RTA.
-		Arco[] edgeTo=new Arco[V];
-		double[] distTo=new double[V];
+		// Paso 2 Prepara las estructura de datos donde guardo la RTA.
+		Arco[] edgeTo = new Arco[V];
+		double[] distTo = new double[V];
 
-		//Paso 3: Dijkstra V Veces
-		double[][] mat=new double[V][V];
-		for(int i=0; i<V; i++)
-		{
+		// Paso 3: Dijkstra V Veces
+		double[][] mat = new double[V][V];
+		for (int i = 0; i < V; i++) {
 			Arrays.fill(edgeTo, null);
 			Arrays.fill(distTo, Double.POSITIVE_INFINITY);
 
-			dijkstra(adj,edgeTo,distTo, i);
-			mat[i]=distTo.clone();
+			dijkstra(adj, edgeTo, distTo, i);
+			mat[i] = distTo.clone();
 		}
 
-		for(int i=0; i<V; i++)
-		{
-			for(int j=0; j<V; j++) System.out.printf("%.2f ",mat[i][j]);
+		for (int i = 0; i < V; i++) {
+			for (int j = 0; j < V; j++)
+				System.out.printf("%.2f ", mat[i][j]);
 			System.out.println();
 		}
 		System.out.println("---------------------------------------");
@@ -70,23 +91,20 @@ public class Dijkstra_All
 //		System.out.println("0 to 6: "+sb.toString());
 	}
 
-	public static void dijkstra(List<Arco>[] adj, Arco[] edgeTo, double[] distTo, int src)
-	{
-		PriorityQueue<NodoDijkstra>pq=new PriorityQueue<NodoDijkstra>();
+	public static void dijkstra(List<Arco>[] adj, Arco[] edgeTo, double[] distTo, int src) {
+		PriorityQueue<NodoDijkstra> pq = new PriorityQueue<NodoDijkstra>();
 
-		distTo[src]=0.0;
+		distTo[src] = 0.0;
 		pq.add(new NodoDijkstra(src, 0.0));
-		for(int v, w; !pq.isEmpty();)
-		{
-			NodoDijkstra aRelajar=pq.poll();
-			v=aRelajar.id;
-			for(Arco edge: adj[v]) //Relajar el nodo
+		for (int v, w; !pq.isEmpty();) {
+			NodoDijkstra aRelajar = pq.poll();
+			v = aRelajar.id;
+			for (Arco edge : adj[v]) // Relajar el nodo
 			{
-				w=edge.to;
-				if(distTo[w]>distTo[v]+edge.peso)
-				{
-					distTo[w]=distTo[v]+edge.peso;
-					edgeTo[w]=edge;
+				w = edge.to;
+				if (distTo[w] > distTo[v] + edge.peso) {
+					distTo[w] = distTo[v] + edge.peso;
+					edgeTo[w] = edge;
 					pq.remove(aRelajar);
 					pq.add(new NodoDijkstra(w, distTo[w]));
 				}
@@ -94,41 +112,52 @@ public class Dijkstra_All
 		}
 	}
 
-	public static Stack<Arco> pathTo(int v, double[] distTo, Arco[] edgeTo)
-	{
-		if (distTo[v]==Double.POSITIVE_INFINITY) return null;
+	public static Stack<Arco> pathTo(int v, double[] distTo, Arco[] edgeTo) {
+		if (distTo[v] == Double.POSITIVE_INFINITY)
+			return null;
 
 		Stack<Arco> path = new Stack<Arco>();
-		for(Arco e=edgeTo[v]; e!=null; e=edgeTo[e.from]) path.push(e);
+		for (Arco e = edgeTo[v]; e != null; e = edgeTo[e.from])
+			path.push(e);
 		return path;
 	}
 
-	private static class Arco implements Comparable<Arco>
-	{
-		int from, to; double peso;
+	private static class Arco implements Comparable<Arco> {
+		int from, to;
+		double peso;
 
-		public Arco(int fromP, int toP, double pesoP)
-		{from=fromP; to=toP; peso=pesoP;}
+		public Arco(int fromP, int toP, double pesoP) {
+			from = fromP;
+			to = toP;
+			peso = pesoP;
+		}
 
 		@Override
-		public int compareTo(Arco arg0)
-		{return Double.compare(peso, arg0.peso);}
+		public int compareTo(Arco arg0) {
+			return Double.compare(peso, arg0.peso);
+		}
 
-		public String toString()
-		{return String.format("[%d->%d (%.2f)]", from, to, peso);}
+		public String toString() {
+			return String.format("[%d->%d (%.2f)]", from, to, peso);
+		}
 	}
 
-	private static class NodoDijkstra implements Comparable<NodoDijkstra>
-	{
-		int id; double dist;
-		public NodoDijkstra(int wP, double distP)
-		{id=wP; dist=distP;}
+	private static class NodoDijkstra implements Comparable<NodoDijkstra> {
+		int id;
+		double dist;
+
+		public NodoDijkstra(int wP, double distP) {
+			id = wP;
+			dist = distP;
+		}
 
 		@Override
-		public int compareTo(NodoDijkstra arg0)
-		{return Double.compare(dist, arg0.dist);}
+		public int compareTo(NodoDijkstra arg0) {
+			return Double.compare(dist, arg0.dist);
+		}
 
-		public String toString()
-		{return String.format("%d (%.2f)", id, dist);}
+		public String toString() {
+			return String.format("%d (%.2f)", id, dist);
+		}
 	}
 }

@@ -1,8 +1,32 @@
+/*
+ * MIT License
+ * 
+ * Copyright (c) 2022 Juan Manuel González Garzón
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package ancheta.tablaGrafo;
 
 import java.io.Serializable;
 
-public class NodoHashG<K,V> implements Serializable, Comparable<NodoHashG<K, V>> {
+public class NodoHashG<K, V> implements Serializable, Comparable<NodoHashG<K, V>> {
 
 	/**
 	 * 
@@ -11,7 +35,7 @@ public class NodoHashG<K,V> implements Serializable, Comparable<NodoHashG<K, V>>
 	/**
 	 * 
 	 */
-	private NodoHashG<K,V> siguiente;
+	private NodoHashG<K, V> siguiente;
 	/**
 	 * 
 	 */
@@ -20,16 +44,18 @@ public class NodoHashG<K,V> implements Serializable, Comparable<NodoHashG<K, V>>
 	 * 
 	 */
 	private K llave;
+
 	/**
 	 * 
 	 * @param elementoP
 	 * @param llaveP
 	 */
-	public NodoHashG(V elementoP,K llaveP){
-		elemento=elementoP;
-		llave=llaveP;
-		siguiente=null;
+	public NodoHashG(V elementoP, K llaveP) {
+		elemento = elementoP;
+		llave = llaveP;
+		siguiente = null;
 	}
+
 	/**
 	 * 
 	 * @param elementoP
@@ -37,6 +63,7 @@ public class NodoHashG<K,V> implements Serializable, Comparable<NodoHashG<K, V>>
 	public void cambiarElemento(V elementoP) {
 		elemento = elementoP;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -44,6 +71,7 @@ public class NodoHashG<K,V> implements Serializable, Comparable<NodoHashG<K, V>>
 	public K darLlave() {
 		return llave;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -51,26 +79,29 @@ public class NodoHashG<K,V> implements Serializable, Comparable<NodoHashG<K, V>>
 	public V darElemento() {
 		return elemento;
 	}
+
 	/**
 	 * 
 	 * @param siguienteP
 	 */
-	public void cambiarSiguiente(NodoHashG<K,V> siguienteP) {
+	public void cambiarSiguiente(NodoHashG<K, V> siguienteP) {
 		siguiente = siguienteP;
 	}
+
 	/**
 	 * 
 	 * @return
 	 */
-	public NodoHashG<K,V> darSiguiente() {
+	public NodoHashG<K, V> darSiguiente() {
 		return siguiente;
 	}
+
 	/**
 	 * 
 	 */
 	@Override
 	public int compareTo(NodoHashG<K, V> otro) {
-		if(llave.toString().equals(otro.darLlave().toString())){
+		if (llave.toString().equals(otro.darLlave().toString())) {
 			return 0;
 		}
 		return 1;

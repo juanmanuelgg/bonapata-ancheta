@@ -1,3 +1,27 @@
+/*
+ * MIT License
+ * 
+ * Copyright (c) 2022 Juan Manuel González Garzón
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package ancheta.listaDoble;
 
 import java.util.Iterator;
@@ -27,12 +51,12 @@ public class Lista2bleEncadenada<T extends Comparable<T>> implements ILista<T>, 
 	/**
 	 * 
 	 */
-	public Lista2bleEncadenada()
-	{
-		primero=null;
-		actualEnUso=null;
-		cantidadDeElementos=0;
+	public Lista2bleEncadenada() {
+		primero = null;
+		actualEnUso = null;
+		cantidadDeElementos = 0;
 	}
+
 	/**
 	 * 
 	 * @return
@@ -40,33 +64,29 @@ public class Lista2bleEncadenada<T extends Comparable<T>> implements ILista<T>, 
 	public NodoDoble<T> darPrimero() {
 		return primero;
 	}
+
 	/**
 	 * 
 	 */
 	@Override
 	public void agregar(T elemento) throws ElementoRepetidoException {
-		NodoDoble<T> nuevo= new NodoDoble<T>(elemento);
-		if(primero==null)
-		{
-			primero=nuevo;
+		NodoDoble<T> nuevo = new NodoDoble<T>(elemento);
+		if (primero == null) {
+			primero = nuevo;
 			primero.cambiarAnterior(primero);
 			primero.cambiarSiguiente(primero);
 			cantidadDeElementos++;
-		}
-		else
-		{
-			NodoDoble<T> actual=primero;
-			int i=0;
-			while(i<=cantidadDeElementos)
-			{
-				int comparacion=actual.darElemento().compareTo(elemento);
-				if(comparacion==0)
-				{
+		} else {
+			NodoDoble<T> actual = primero;
+			int i = 0;
+			while (i <= cantidadDeElementos) {
+				int comparacion = actual.darElemento().compareTo(elemento);
+				if (comparacion == 0) {
 					throw new ElementoRepetidoException(elemento);
 				}
-				i++;	
+				i++;
 			}
-			NodoDoble<T> auxUltimo= primero.darAnterior();
+			NodoDoble<T> auxUltimo = primero.darAnterior();
 			auxUltimo.cambiarSiguiente(nuevo);
 			nuevo.cambiarAnterior(auxUltimo);
 			primero.cambiarAnterior(nuevo);
@@ -74,29 +94,28 @@ public class Lista2bleEncadenada<T extends Comparable<T>> implements ILista<T>, 
 			cantidadDeElementos++;
 		}
 	}
+
 	/**
 	 * 
 	 */
 	@Override
 	public T buscar(T elemento) {
 		T aRetornar = null;
-		if(primero!=null)
-		{
-			NodoDoble<T> actual=primero;
-			int i=0;
-			while(i<=cantidadDeElementos)
-			{
-				int comparacion=actual.darElemento().compareTo(elemento);
-				if(comparacion==0)
-				{
+		if (primero != null) {
+			NodoDoble<T> actual = primero;
+			int i = 0;
+			while (i <= cantidadDeElementos) {
+				int comparacion = actual.darElemento().compareTo(elemento);
+				if (comparacion == 0) {
 					return actual.darElemento();
 				}
-				actual=actual.darSiguiente();
-				i++;	
+				actual = actual.darSiguiente();
+				i++;
 			}
 		}
 		return aRetornar;
 	}
+
 	/**
 	 * 
 	 */
@@ -104,25 +123,25 @@ public class Lista2bleEncadenada<T extends Comparable<T>> implements ILista<T>, 
 	public int darCantidadDeElementos() {
 		return cantidadDeElementos;
 	}
+
 	/**
 	 * 
 	 */
 	@Override
 	public Object[] darEnArreglo() {
-		Object[] aRetornar= new Object[cantidadDeElementos];
-		if(primero!=null)
-		{
-			NodoDoble<T> actual=primero;
-			int i=0;
-			while(i<=cantidadDeElementos)
-			{
-				aRetornar[i]=actual.darElemento();
-				actual=actual.darSiguiente();
-				i++;	
+		Object[] aRetornar = new Object[cantidadDeElementos];
+		if (primero != null) {
+			NodoDoble<T> actual = primero;
+			int i = 0;
+			while (i <= cantidadDeElementos) {
+				aRetornar[i] = actual.darElemento();
+				actual = actual.darSiguiente();
+				i++;
 			}
 		}
 		return aRetornar;
 	}
+
 	/**
 	 * 
 	 */
@@ -131,13 +150,15 @@ public class Lista2bleEncadenada<T extends Comparable<T>> implements ILista<T>, 
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	/**
 	 * 
 	 */
 	@Override
 	public boolean esVacia() {
-		return primero==null;
+		return primero == null;
 	}
+
 	/**
 	 * 
 	 */
@@ -146,6 +167,7 @@ public class Lista2bleEncadenada<T extends Comparable<T>> implements ILista<T>, 
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	/**
 	 * 
 	 */
@@ -154,6 +176,7 @@ public class Lista2bleEncadenada<T extends Comparable<T>> implements ILista<T>, 
 		// TODO Auto-generated method stub
 		return false;
 	}
+
 	/**
 	 * 
 	 */
@@ -162,6 +185,7 @@ public class Lista2bleEncadenada<T extends Comparable<T>> implements ILista<T>, 
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 	/**
 	 * 
 	 * @param actualEnUso
@@ -169,6 +193,7 @@ public class Lista2bleEncadenada<T extends Comparable<T>> implements ILista<T>, 
 	public void cambiarActualEnUso(NodoDoble<T> actualEnUso) {
 		this.actualEnUso = actualEnUso;
 	}
+
 	/**
 	 * 
 	 */
@@ -176,6 +201,7 @@ public class Lista2bleEncadenada<T extends Comparable<T>> implements ILista<T>, 
 	public T darActualEnUso() {
 		return actualEnUso.darElemento();
 	}
+
 	/**
 	 * 
 	 */
@@ -183,6 +209,7 @@ public class Lista2bleEncadenada<T extends Comparable<T>> implements ILista<T>, 
 	public T darSiguienteElemento() {
 		return actualEnUso.darSiguiente().darElemento();
 	}
+
 	/**
 	 * 
 	 */
