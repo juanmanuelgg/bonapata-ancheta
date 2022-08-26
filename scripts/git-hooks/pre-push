@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Run Unit tests
+./gradlew test
+
+# Build the library jars
+./gradlew build
+
+# Copy the javadoc to the docs folder to host it online in github-pages
+./gradlew copy
