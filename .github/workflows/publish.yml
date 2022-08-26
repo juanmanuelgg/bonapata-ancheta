@@ -1,39 +1,32 @@
-name: Publish
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+# GitHub recommends pinning actions to a commit SHA.
+# To get a newer version, you will need to update the SHA.
+# You can also reference a tag or branch, but the action may change without warning.
+
+name: Publish package to the Maven Central Repository
 on:
     release:
-        types: [published]
+        types: [created]
 jobs:
-    build:
-        runs-on: ${{ matrix.os }}
-
-        strategy:
-            matrix:
-                node-version: [14.x, 16.x]
-                # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-                os: [ubuntu-latest, windows-latest, macOS-latest]
-
-        steps:
-            - uses: actions/checkout@v3
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                  node-version: ${{ matrix.node-version }}
-                  cache: 'npm'
-            - run: npm ci
-            - run: npm run build --if-present
-            - run: npm test
-
     publish:
-        needs: build
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 16
-                  registry-url: https://registry.npmjs.org/
-            - run: npm ci
-            - run: npm run build --if-present
-            - run: npm publish --access public
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+            - name: Set up Java
+                uses: actions/setup-java@v3
+                with:
+                    java-version: '11'
+                    distribution: 'adopt'
+            - name: Validate Gradle wrapper
+                uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+            - name: Publish package
+                uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+                with:
+                    arguments: publish
+                env:
+                    MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+                    MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
