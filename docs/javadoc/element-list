@@ -1,1 +1,13 @@
 ancheta
+ancheta.arbolAVL
+ancheta.arbolTrie
+ancheta.arrayChimbo
+ancheta.exceptions
+ancheta.grafo
+ancheta.Grafos
+ancheta.listaDoble
+ancheta.listasCYP
+ancheta.Matematicas
+ancheta.tablaGrafo
+ancheta.tablaHash
+ancheta.utilidades

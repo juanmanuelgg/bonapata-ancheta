@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - TestArbolAVL</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>TestArbolAVL</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/ancheta.testArbolAVL.html">ancheta.testArbolAVL</a> &gt; TestArbolAVL</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">5</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.015s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testGet()</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testInsercion1Rotacion()</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testInsercion1RotacionDeEsteticaRara()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testInsercionDobleRotacion()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testInsercionHijosEnLCasoEspecial()</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>ARBOL N 1
+____________________________________________________
+inserto: 1  RAIZ  num05
+inserto: 2  NODO  num10
+&lt;D&gt;  BALANCEO SENCILLO ::num05
+inserto: 3  NODO  num15
+inserto: 4  NODO  num20
+&lt;D&gt;  BALANCEO SENCILLO ::num15
+inserto: 5  NODO  num25
+&lt;D&gt;  BALANCEO SENCILLO ::num10
+inserto: 6  NODO  num30
+&lt;D&gt;  BALANCEO SENCILLO ::num25
+inserto: 7  NODO  num35
+inserto: 8  NODO  num40
+____________________________
+ARBOL N 2
+____________________________
+inserto: 1  RAIZ  num40
+inserto: 2  NODO  num35
+&lt;I&gt;  BALANCEO SENCILLO ::num40
+inserto: 3  NODO  num30
+inserto: 4  NODO  num25
+&lt;I&gt;  BALANCEO SENCILLO ::num30
+inserto: 5  NODO  num20
+&lt;I&gt;  BALANCEO SENCILLO ::num35
+inserto: 6  NODO  num15
+&lt;I&gt;  BALANCEO SENCILLO ::num20
+inserto: 7  NODO  num10
+inserto: 8  NODO  num05
+____________________________________________________
+ARBOL N 5
+____________________________________________________
+inserto: 1  RAIZ  num2
+inserto: 2  NODO  num4
+&lt;D&gt;  BALANCEO SENCILLO ::num2
+inserto: 3  NODO  num6
+inserto: 4  NODO  num7
+&lt;D&gt;  BALANCEO SENCILLO ::num6
+inserto: 5  NODO  num8
+&lt;D&gt;  BALANCEO DOBLE &gt;&gt;::&gt;&gt;num4
+inserto: 6  NODO  num5
+inserto: 7  NODO  num1
+inserto: 8  NODO  num5
+____________________________________________________
+ARBOL N 3
+____________________________
+inserto: 1  RAIZ  num10
+inserto: 2  NODO  num05
+inserto: 3  NODO  num15
+inserto: 4  NODO  num02
+inserto: 5  NODO  num06
+&lt;I&gt;  BALANCEO SENCILLO ::num10
+inserto: 6  NODO  num04
+inserto: 7  NODO  num01
+____________________________________________________
+ARBOL N 5
+____________________________________________________
+inserto: 1  RAIZ  num2
+inserto: 2  NODO  num4
+&lt;D&gt;  BALANCEO SENCILLO ::num2
+inserto: 3  NODO  num6
+inserto: 4  NODO  num7
+&lt;D&gt;  BALANCEO SENCILLO ::num6
+inserto: 5  NODO  num8
+&lt;D&gt;  BALANCEO DOBLE &gt;&gt;::&gt;&gt;num4
+inserto: 6  NODO  num5
+inserto: 7  NODO  num1
+inserto: 8  NODO  num5
+____________________________________________________
+ARBOL N 4
+____________________________________________________
+inserto: 1  RAIZ  num10
+inserto: 2  NODO  num25
+&lt;D&gt;  BALANCEO SENCILLO ::num10
+inserto: 3  NODO  num90
+inserto: 4  NODO  num50
+&lt;I&gt;  BALANCEO DOBLE &gt;&gt;::&gt;&gt;num90
+inserto: 5  NODO  num60
+&lt;D&gt;  BALANCEO SENCILLO ::num25
+inserto: 6  NODO  num65
+&lt;I&gt;  BALANCEO DOBLE &gt;&gt;::&gt;&gt;num90
+inserto: 7  NODO  num70
+inserto: 8  NODO  num75
+____________________________________________________
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.5.1</a> at Aug 26, 2022, 5:18:24 AM</p>
+</div>
+</div>
+</body>
+</html>

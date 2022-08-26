@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"ancheta"}]
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"ancheta"},{"l":"ancheta.arbolAVL"},{"l":"ancheta.arbolTrie"},{"l":"ancheta.arrayChimbo"},{"l":"ancheta.exceptions"},{"l":"ancheta.grafo"},{"l":"ancheta.Grafos"},{"l":"ancheta.listaDoble"},{"l":"ancheta.listasCYP"},{"l":"ancheta.Matematicas"},{"l":"ancheta.tablaGrafo"},{"l":"ancheta.tablaHash"},{"l":"ancheta.utilidades"}]
