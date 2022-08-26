@@ -27,6 +27,9 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation("com.google.guava:guava:31.1-jre")
+
+    // https://mvnrepository.com/artifact/xerces/xercesImpl
+    implementation("xerces:xercesImpl:2.12.2")
 }
 
 testing {
