@@ -8,7 +8,8 @@ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
  * User Manual available at https://docs.gradle.org/7.5.1/userguide/building_java_projects.html
  * This project uses @Incubating APIs which are subject to change.
  */
- version = "0.0.1"
+
+version = "0.0.1"
 
 plugins {
     // Apply the java-library plugin for API and implementation separation.
