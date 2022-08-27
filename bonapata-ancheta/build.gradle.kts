@@ -72,14 +72,8 @@ tasks.register<Copy>("copyReportsAndJavadocForDocumentation") {
     from("$buildDir/reports/tests"){
         into("docs")
     }
-    from("$buildDir/libs"){
-        into("dist")
-    }
 }
 
-// TODO: Me falta crear mi cuenta y terminar de ajustar el proyecto
-// https://central.sonatype.org/publish/publish-guide/#introduction
-/*
 publishing {
     publications {
         create<MavenPublication>("bonapata-ancheta") {
@@ -89,14 +83,21 @@ publishing {
 
     repositories {
         maven {
+            name = "bonapata-ancheta"
+            url = uri("../dist")
+        }
+
+        // TODO: Me falta crear mi cuenta y terminar de ajustar el proyecto
+        // https://central.sonatype.org/publish/publish-guide/#introduction
+        /*
+        maven {
             name = "OSSRH"
-            // Queda comentado porque en kotlin no funciona asi el de url
-            url = "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
                 username = System.getenv("MAVEN_USERNAME")
                 password = System.getenv("MAVEN_PASSWORD")
             }
         }
+        */
     }
 }
-*/

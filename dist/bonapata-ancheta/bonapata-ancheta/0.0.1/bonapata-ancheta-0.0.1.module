@@ -1,0 +1,132 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "bonapata-ancheta",
+    "module": "bonapata-ancheta",
+    "version": "0.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.5.1"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.apache.commons",
+          "module": "commons-math3",
+          "version": {
+            "requires": "3.6.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "bonapata-ancheta-0.0.1.jar",
+          "url": "bonapata-ancheta-0.0.1.jar",
+          "size": 105138,
+          "sha512": "dc4e521bf3ad2525a73c8085a8e38f96f07b6ba2b7da1817cf17f1a29f586d7e63ef4997fa69bce80b669aebe6db533c4c2e986f515e30b8d18c5359eae48841",
+          "sha256": "cffd1f0de1c9f981bf05aaf1c807293603b31c96845ffc013b2f1e90f31e2c6b",
+          "sha1": "46c9ccc51be9c23eb6f8883e67405dc48eb0a906",
+          "md5": "56f2db7bfe30657022fbdc0b3150c79b"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 11,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.google.guava",
+          "module": "guava",
+          "version": {
+            "requires": "31.1-jre"
+          }
+        },
+        {
+          "group": "xerces",
+          "module": "xercesImpl",
+          "version": {
+            "requires": "2.12.2"
+          }
+        },
+        {
+          "group": "org.apache.commons",
+          "module": "commons-math3",
+          "version": {
+            "requires": "3.6.1"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "bonapata-ancheta-0.0.1.jar",
+          "url": "bonapata-ancheta-0.0.1.jar",
+          "size": 105138,
+          "sha512": "dc4e521bf3ad2525a73c8085a8e38f96f07b6ba2b7da1817cf17f1a29f586d7e63ef4997fa69bce80b669aebe6db533c4c2e986f515e30b8d18c5359eae48841",
+          "sha256": "cffd1f0de1c9f981bf05aaf1c807293603b31c96845ffc013b2f1e90f31e2c6b",
+          "sha1": "46c9ccc51be9c23eb6f8883e67405dc48eb0a906",
+          "md5": "56f2db7bfe30657022fbdc0b3150c79b"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "bonapata-ancheta-0.0.1-sources.jar",
+          "url": "bonapata-ancheta-0.0.1-sources.jar",
+          "size": 104741,
+          "sha512": "6c00ec7a9a52a317ad06605e030fd4430858e77f2c26118044fd98c8db51e737bc1650cffb9047f57560b1626ee2bf799e8c136844be76e51807c7f6eeb6d4af",
+          "sha256": "f4cbb214679d816ba65d77b133dc58b1315d563f52cff08104341cc9bfd3590e",
+          "sha1": "bbbc6bf86764a616cfb6b7e0d115b0bbae6fc04e",
+          "md5": "89582b97be01485a1a19704d51db95e9"
+        }
+      ]
+    },
+    {
+      "name": "javadocElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "bonapata-ancheta-0.0.1-javadoc.jar",
+          "url": "bonapata-ancheta-0.0.1-javadoc.jar",
+          "size": 645336,
+          "sha512": "54328187fd8a22d897273db03428d94be988388fbcd4b53c8c6ec589e4b63d23033396e7411f46cb7a843877d4b28d0f253271b2dfeab59f0b8c9e054005ebbd",
+          "sha256": "6f602d6905bc0f56699287538c2bdd5ec8b93570a9d577301f371a102fd807a3",
+          "sha1": "fbbebe27e459c99e4ac9d21e999c912d44186c82",
+          "md5": "1a19b679df9148c7b9b8149f80b2f3a5"
+        }
+      ]
+    }
+  ]
+}
